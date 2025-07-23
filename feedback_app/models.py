@@ -5,6 +5,6 @@ from django.db import models
 
 class Feedback(models.Model):
     name = models.CharField(max_length=15)
-    email = models.EmailField()
+    email = models.EmailField(max_length=25)
     message = models.TextField()
     submitted_at = models.DateTimeField(auto_now_add=True)
