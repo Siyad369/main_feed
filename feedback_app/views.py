@@ -18,7 +18,7 @@ def submit_feedback(request):
 
 def show_feedback(request):
     form = Feedback.objects.all()
-    context= {
+    context = {
         'form': form
     }
     return render(request, "data_all.html", context)

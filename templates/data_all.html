@@ -5,12 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-{% for i in from %}
+{% for i in form %}
 <ul>
   <li>{{ i.name}}</li>
   <li>{{ i.email}}</li>
   <li>{{ i.message}}</li>
-  <li>{{ i.submitted_at}}</li>
-  </ul>
+    <li> {{ i.submitted_at}}</li>
+</ul>
+ {% endfor %}
 </body>
 </html>
