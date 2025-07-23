@@ -14,3 +14,11 @@ def submit_feedback(request):
     else:
         form = FeedbackForm()
     return render(request, 'feedback_form.html', {'form': form})
+
+
+def show_feedback(request):
+    form = Feedback.objects.all()
+    context= {
+        'form': form
+    }
+    return render(request, "data_all.html", context)
