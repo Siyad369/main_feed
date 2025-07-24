@@ -1,4 +1,4 @@
-
+<a href="{% url 'feedback' %}">Enter FEEDBACK</a>
 {% for i in form %}
 <ul>
   <li>{{ i.name}}</li>
@@ -6,5 +6,6 @@
   <li>{{ i.message}}</li>
     <li> {{ i.submitted_at}}</li>
 </ul>
+
  {% endfor %}
 
