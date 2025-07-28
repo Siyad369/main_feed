@@ -18,7 +18,17 @@ def submit_feedback(request):
 
 def show_feedback(request):
     form = Feedback.objects.all()
-    context = {
-        'form': form
-    }
-    return render(request, "data_all.html", context)
+    return render(request, "data_all.html", {'form': form})
+
+
+def edit_feedback(request, pk):
+    instance_edit = Feedback.objects.get(pk=pk)   # feedback models le ella objectneem ee variable lekk kond varunnu
+    form = FeedbackForm(instance=instance_edit)   # edit button press aakkumbol athil ulla value aa form el kond varunnnu
+    return render(request, 'feedback_form.html', {'form': form})
+
+
+def delete_feedback(request, pk):
+    instance = Feedback.objects.get(pk=pk)    # feedback models le ella objectneem ee variable lekk kond varunnu
+    instance.delete()   # athine delete cheyyunnu
+    form = Feedback.objects.all()  # veendum desplay cheyyunnnu
+    return render(request, 'data_all.html', {'form': form})

@@ -1,11 +1,26 @@
 <a href="{% url 'feedback' %}">Enter FEEDBACK</a>
-{% for i in form %}
-<ul>
-  <li>{{ i.name}}</li>
-  <li>{{ i.email}}</li>
-  <li>{{ i.message}}</li>
-    <li> {{ i.submitted_at}}</li>
-</ul>
+<table border="1px">
+    <thead>
+    <tr>
+        <td><h1> Name </h1></td>
+        <td><h1> Email </h1></td>
+        <td> <h1>Message </h1></td>
+        <td> <h1> Edit/delete</h1></td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in form %}
+    <tr>
+        <td> {{ i.name}} </td>
+        <td> {{ i.email}} </td>
+        <td> {{ i.message}} </td>
+        <td><a href="{% url 'edit' i.id %}">Edit</a>/<a href="{% url 'delete' i.id %}">Delete</a> </td>  <!--i.id aan primary key so path el nammal pk koode add akkiyath kond ivde nammal primary key specify cheyth kodukkunnu-->
+    </tr>
+     {% endfor %}
 
- {% endfor %}
+
+</table>
+
+
+
 
