@@ -42,7 +42,7 @@ def sign_up(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('feedback')
+            return redirect('signin')
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
@@ -57,5 +57,5 @@ def sign_in(request):
             return redirect('feedback')
     else:
         form = AuthenticationForm()
-        return render(request, 'signin.html', {'form': form})
+    return render(request, 'signin.html', {'form': form})
 
