@@ -1,26 +1,102 @@
-<a href="{% url 'feedback' %}">Enter FEEDBACK</a>
-<table border="1px">
+<!--<a href="{% url 'feedback' %}">Enter FEEDBACK</a>-->
+<!--<table border="1px">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <td><h1> Name </h1></td>-->
+<!--        <td><h1> Email </h1></td>-->
+<!--        <td> <h1>Message </h1></td>-->
+<!--        <td> <h1> Edit/delete</h1></td>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    {% for i in form %}-->
+<!--    <tr>-->
+<!--        <td> {{ i.name}} </td>-->
+<!--        <td> {{ i.email}} </td>-->
+<!--        <td> {{ i.message}} </td>-->
+<!--        <td><a href="{% url 'edit' i.id %}">Edit</a>/<a href="{% url 'delete' i.id %}">Delete</a> </td>  &lt;!&ndash;i.id aan primary key so path el nammal pk koode add akkiyath kond ivde nammal primary key specify cheyth kodukkunnu&ndash;&gt;-->
+<!--    </tr>-->
+<!--     {% endfor %}-->
+
+
+<!--</table>-->
+
+<a href="{% url 'feedback' %}" class="btn">Enter FEEDBACK</a>
+
+<table class="styled-table">
     <thead>
-    <tr>
-        <td><h1> Name </h1></td>
-        <td><h1> Email </h1></td>
-        <td> <h1>Message </h1></td>
-        <td> <h1> Edit/delete</h1></td>
-    </tr>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Edit/Delete</th>
+        </tr>
     </thead>
     <tbody>
-    {% for i in form %}
-    <tr>
-        <td> {{ i.name}} </td>
-        <td> {{ i.email}} </td>
-        <td> {{ i.message}} </td>
-        <td><a href="{% url 'edit' i.id %}">Edit</a>/<a href="{% url 'delete' i.id %}">Delete</a> </td>  <!--i.id aan primary key so path el nammal pk koode add akkiyath kond ivde nammal primary key specify cheyth kodukkunnu-->
-    </tr>
-     {% endfor %}
-
-
+        {% for i in form %}
+        <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.message }}</td>
+            <td>
+                <a href="{% url 'edit' i.id %}" class="action-link">Edit</a> /
+                <a href="{% url 'delete' i.id %}" class="action-link delete">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        padding: 20px;
+    }
 
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
 
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
 
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    .styled-table th, .styled-table td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+    }
+
+    .styled-table tbody tr:nth-child(even) {
+        background-color: #f3f3f3;
+    }
+
+    .action-link {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .action-link.delete {
+        color: #dc3545;
+    }
+
+    .action-link:hover {
+        text-decoration: underline;
+    }
+</style>

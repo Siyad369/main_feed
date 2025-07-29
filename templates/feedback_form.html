@@ -1,8 +1,58 @@
-<a href="{% url 'show' %}">SHOW FEEDBACK</a>
+<!--<a href="{% url 'show' %}">SHOW FEEDBACK</a>-->
 
-<h1> Feed Back Page</h1>
-<form method="post">
+<!--<h1> Feed Back Page</h1>-->
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <button type="submit"> Submit</button>-->
+<!--</form>-->
+<a href="{% url 'show' %}" class="btn">SHOW FEEDBACK</a>
+
+<h1 class="title">Feedback Page</h1>
+
+<form method="post" class="feedback-form">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit"> Submit</button>
+   <button type="submit" class="fancy-btn">Submit</button>
 </form>
+
+<style>
+    .fancy-btn {
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    color: white;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    letter-spacing: 1px;
+}
+
+.fancy-btn:hover {
+    background: linear-gradient(135deg, #16a085, #1abc9c);
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        padding: 30px;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    .title {
+        color: #2c3e50;
+        margin-bottom: 20px;
+    }
