@@ -1,0 +1,102 @@
+<!--<body>-->
+<!--<h1> LOGIN PAGE</h1>-->
+<!--<form method="post">-->
+<!--  {% csrf_token %}-->
+<!--  {{ form.as_p }}-->
+<!--  <button type="submit">LOGIN</button>-->
+<!--</form>-->
+<!--<h4>if you don't have account <a href="{% url 'signup' %}">REGISTER</a></h4>-->
+<!--</body>-->
+<body>
+
+<div class="login-container">
+    <h1 class="login-title">LOGIN PAGE</h1>
+
+    <form method="post" class="login-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="login-btn">LOGIN</button>
+    </form>
+
+    <h4 class="register-link">
+        If you don't have an account,
+        <a href="{% url 'signup' %}">REGISTER</a>
+    </h4>
+</div>
+
+<style>
+    body {
+        background-color: #f4f6f8;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .login-container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .login-title {
+        margin-bottom: 30px;
+        color: #2c3e50;
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .login-form p {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .login-form input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 10px;
+    }
+
+    .login-btn:hover {
+        background: linear-gradient(135deg, #2980b9, #3498db);
+    }
+
+    .register-link {
+        margin-top: 20px;
+        color: #333;
+        font-size: 14px;
+    }
+
+    .register-link a {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .register-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+</body>

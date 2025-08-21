@@ -1,0 +1,105 @@
+<!--<body>-->
+
+<!--<h1> SIGN_UP PAGE</h1>-->
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <button type="submit">SIGN_UP</button>-->
+<!--</form>-->
+
+<!--<h4>if you already have account <a href="{% url 'signin' %}">LOGIN</a></h4>-->
+<!--</body>-->
+<body>
+
+<div class="signup-container">
+    <h1 class="signup-title">SIGN UP PAGE</h1>
+
+    <form method="post" class="signup-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="signup-btn">SIGN UP</button>
+    </form>
+
+    <h4 class="login-link">
+        If you already have an account,
+        <a href="{% url 'signin' %}">LOGIN</a>
+    </h4>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .signup-container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 450px;
+        text-align: center;
+    }
+
+    .signup-title {
+        margin-bottom: 30px;
+        font-size: 28px;
+        color: #2d3436;
+    }
+
+    .signup-form p {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .signup-form input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+        margin-top: 6px;
+    }
+
+    .signup-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        background: linear-gradient(135deg, #8e44ad, #9b59b6);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 10px;
+    }
+
+    .signup-btn:hover {
+        background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    }
+
+    .login-link {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #555;
+    }
+
+    .login-link a {
+        color: #8e44ad;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+</body>
