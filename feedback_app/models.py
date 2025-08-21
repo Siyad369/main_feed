@@ -8,3 +8,5 @@ class Feedback(models.Model):
     email = models.EmailField(max_length=25)
     message = models.TextField()
     submitted_at = models.DateTimeField(auto_now_add=True)
+
+

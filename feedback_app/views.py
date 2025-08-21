@@ -12,7 +12,7 @@ def submit_feedback(request):
         form = FeedbackForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('feedback')
+            return redirect('show')
     else:
         form = FeedbackForm()
     return render(request, 'feedback_form.html', {'form': form})
@@ -25,7 +25,11 @@ def show_feedback(request):
 
 def edit_feedback(request, pk):
     instance_edit = Feedback.objects.get(pk=pk)   # feedback models le ella objectneem ee variable lekk kond varunnu
-    form = FeedbackForm(instance=instance_edit)   # edit button press aakkumbol athil ulla value aa form el kond varunnnu
+    form = FeedbackForm(request.POST or None, instance=instance_edit)   # edit button press aakkumbol athil ulla value aa form el kond varunnnu
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('feedback')
     return render(request, 'feedback_form.html', {'form': form})
 
 
@@ -42,7 +46,7 @@ def sign_up(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('sign_in')
+            return redirect('signin')
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
